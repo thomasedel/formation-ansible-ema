@@ -1,2 +1,29 @@
-Léo G. INFRES 16 2A SR trouve marrant d'écrire je cite : "beuteu juteuse" sur mon github et de commit.
-N'hésitez pas à lui en tenir rigueur.
+# Authentification
+
+## Exercice
+
+On se déplace dans le dossier avec : ```cd ~/formation-ansible/atelier-03```
+
+On lance les VMs avec : ```vagrant up```
+
+On se connecter en SSH à la VM control avec : ```vagrant ssh control```
+
+On vérifie que ansible est installé avec : ```type ansible```
+
+Modifier le ```/etc/hosts``` pour ajouter les hosts :
+
+```console
+192.168.56.10 control
+192.168.56.20 target01
+192.168.56.30 target02
+192.168.56.40 target03 	
+```
+On génère une paire de clé ssh avec : ```ssh-keygen```
+
+On fait la commande : ```ssh-copy-id target0X``` sur les targets 1 à 3.
+
+On test un ping ansible sur les 3 machines avec la commande : ```ansible all -i target01,target02,target03 -m ping```
+
+On constate que les pings fonctionnent :
+
+![image](https://github.com/user-attachments/assets/b4ed961c-d678-4e08-befb-e76da8a00a19)
