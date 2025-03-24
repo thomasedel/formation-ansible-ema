@@ -26,7 +26,7 @@ On test un premier ping ansible sur les 3 machines avec la commande : ```ansible
 
 ![image](https://github.com/user-attachments/assets/48ff780a-0c79-4709-8732-5f8e917c76da)
 
-On constate que les 3 pings sont success.
+On constate que les 3 pings fonctionnent.
 
 On créer le dossier monprojet avec la commande : ```mkdir monprojet```
 
@@ -59,9 +59,9 @@ ansible_user=vagrant
 
 On fait ```ansible all -m ping``` :
 
-Pour définir l'élévation on ajoute à la fin du fichier ```hosts``` la ligne ```ansible_become=yes```
-
 ![image](https://github.com/user-attachments/assets/a54ea5b1-cd70-4ea2-86f3-2484d04d1687)
+
+Pour définir l'élévation on ajoute à la fin du fichier ```hosts``` la ligne ```ansible_become=yes```
 
 On affiche la première ligne du fichier ```/etc/shadow``` des hosts avec la commande : ```ansible all -a "head -n 1 /etc/shadow"```
 
