@@ -37,11 +37,35 @@ Pour vérifier si le fichier de config est pris en compte on fait ```ansible --v
 ![image](https://github.com/user-attachments/assets/f62ba687-1b7d-4d04-87bf-b0730e796be3)
 
 
-On créé un inventaire en ajoutant les lignes suivantes dans le fichier ```ansible.cfg``` :
+On créer un inventaire et on active les logs en ajoutant les lignes suivantes dans le fichier ```ansible.cfg``` :
 
 ```console
-[hosts]
-testing01
-testing02
-testing03
+[defaults]
+inventory = ./hosts
+log_path = ~/logs/ansible.log
 ```
+
+On créer le fichier ``hosts``` avec les lignes suivantes, au passage on défini l'utilisateur à utiliser : 
+
+```console
+[testlab]
+target01
+target02
+target03
+
+[testlab:vars]
+ansible_user=vagrant
+```
+
+On fait ```ansible all -m ping``` :
+
+Pour définir l'élévation on ajoute à la fin du fichier ```hosts``` la ligne ```ansible_become=yes```
+
+![image](https://github.com/user-attachments/assets/a54ea5b1-cd70-4ea2-86f3-2484d04d1687)
+
+On affiche la première ligne du fichier ```/etc/shadow``` des hosts avec la commande : ```ansible all -a "head -n 1 /etc/shadow"```
+
+![image](https://github.com/user-attachments/assets/603a47e6-b5e5-472e-980c-0f5e0c79d8eb)
+
+
+On quitte le ssh avec ```exit``` et on détruit les VMs avec ```vagrant destroy -f```
