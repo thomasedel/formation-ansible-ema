@@ -2,9 +2,20 @@
 
 ## Exercice
 
-Pour installer les 3 paquets lancer :  ```ansible all -m package -a "name=tree,git,nmap"```
+Pour installer les 3 paquets lancer :  
 
-Pour désinstaller les 3 paquets lancer : ```ansible all -m package -a "name=tree,git,nmap state=absent"```
+```
+ansible all -m package -a "name=tree"
+ansible all -m package -a "name=git"
+ansible all -m package -a "name=nmap"
+```
+
+Pour désinstaller les 3 paquets lancer : 
+```
+ansible all -m package -a "name=tree state=absent"
+ansible all -m package -a "name=git state=absent"
+ansible all -m package -a "name=nmap state=absent"
+```
 
 Pour copier le fichier fstab lancer : ```ansible all -m copy -a "src=/etc/fstab dest=/tmp/test3.txt"```
 
