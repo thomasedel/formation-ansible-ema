@@ -152,18 +152,6 @@ Pour suse on créer le playbook suivant :
       name: apache2
       enabled: yes
       state: started
-
-  - name: Open firewall for HTTP
-    firewalld:
-      service: http
-      permanent: yes
-      state: enabled
-    notify: reload firewalld
-
-  handlers:
-  - name: reload firewalld
-    firewalld:
-      state: reloaded
 ```
 
 On le lance avec ```ansible-playbook apache-03.yml```
