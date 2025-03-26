@@ -7,5 +7,5 @@
 ## [Apache](exercices/apache.md)
 ## [Handler](exercices/handler.md)
 ## [Variables](exercices/variables.md)
-## [Cibles hétérogènes](exercices/cible-heterogenes.md.md)
+## [Cibles hétérogènes](exercices/cible-heterogenes.md)
 ## [Jinja](exercices/jinja.md)
