@@ -2,10 +2,9 @@
 
 ## Exercice
 
-Dans un premier temps, on créer le dossier ```templates``` à la racine et on y ajoute le fichier ```chrony.conf``` contenant les lignes suivantes : 
+Dans un premier temps, on créer le dossier ```templates``` à la racine et on y ajoute dedans le fichier ```chrony.conf.j2``` contenant les lignes suivantes : 
 
 ```console
-# chrony.conf
 server 0.fr.pool.ntp.org iburst
 server 1.fr.pool.ntp.org iburst
 server 2.fr.pool.ntp.org iburst
@@ -20,14 +19,17 @@ Voici le playbook ```chrony.yml``` :
 
 ```yaml
 ---
-- name: Configure Chrony with native package managers
+# Ce playbook installe un fichier de configuration personnalisé pour Chrony sur les cibles.
+# Le fichier sera installé à /etc/chrony.conf ou /etc/chrony/chrony.conf selon la distribution.
+
+- name: Install and configure Chrony
   hosts: testing
   become: yes
 
   vars:
     chrony_package: chrony
     chrony_service: "{{ 'chrony' if ansible_os_family == 'Debian' else 'chronyd' }}"
-    chrony_confdir: /etc/chrony.conf
+    chrony_confdir: "{{ '/etc/chrony.conf' if ansible_os_family == 'Debian' else '/etc/chrony/chrony.conf' }}"
 
   tasks:
     - name: Update package information on Debian/Ubuntu
@@ -51,45 +53,63 @@ Voici le playbook ```chrony.yml``` :
         name: "{{ chrony_package }}"
       when: ansible_distribution == "openSUSE Leap"
 
-    - name: Configure Chrony on Debian/Ubuntu
+    - name: Ensure the /etc/chrony directory exists on non-Debian systems
+      file:
+        path: /etc/chrony
+        state: directory
+      when: ansible_distribution in ["Rocky", "openSUSE Leap"]
+
+    - name: Configure Chrony with a custom configuration file
       template:
         src: templates/chrony.conf.j2
         dest: "{{ chrony_confdir }}"
-      when: ansible_os_family == "Debian"
+      notify: Restart Chrony
 
-    - name: Configure Chrony on Rocky Linux
-      template:
-        src: templates/chrony.conf.j2
-        dest: "{{ chrony_confdir }}"
-      when: ansible_distribution == "Rocky"
-
-    - name: Configure Chrony on SUSE Linux
-      template:
-        src: templates/chrony.conf.j2
-        dest: "{{ chrony_confdir }}"
-      when: ansible_distribution == "openSUSE Leap"
-
-    - name: Enable and start Chrony on Debian/Ubuntu
+    - name: Enable and start Chrony service
       service:
         name: "{{ chrony_service }}"
         state: started
         enabled: yes
-      when: ansible_os_family == "Debian"
 
-    - name: Enable and start Chrony on Rocky Linux
+  handlers:
+    - name: Restart Chrony
       service:
         name: "{{ chrony_service }}"
-        state: started
-        enabled: yes
-      when: ansible_distribution == "Rocky"
+        state: restarted
+```
 
-    - name: Enable and start Chrony on SUSE Linux
-      service:
-        name: "{{ chrony_service }}"
-        state: started
-        enabled: yes
-      when: ansible_distribution == "openSUSE Leap"
+On lance le playbook avec ```ansible-playbook chrony.yml```
 
+On se connecte en ssh au serveur debian pour voir si la config a été appliqué :
+
+```shell
+vagrant@debian:~$ cat /etc/chrony.conf 
+# chrony.conf
+server 0.fr.pool.ntp.org iburst
+server 1.fr.pool.ntp.org iburst
+server 2.fr.pool.ntp.org iburst
+server 3.fr.pool.ntp.org iburst
+driftfile /var/lib/chrony/drift
+makestep 1.0 3
+rtcsync
+logdir /var/log/chrony
+```
+
+On fait pareil pour le serveur rocky et on voit que la config a aussi été appliqué :
+
+```shell
+[vagrant@ansible ema]$ ssh rocky
+Last login: Wed Mar 26 11:22:18 2025 from 192.168.56.10
+[vagrant@rocky ~]$ cat /etc/chrony/chrony.conf 
+# chrony.conf
+server 0.fr.pool.ntp.org iburst
+server 1.fr.pool.ntp.org iburst
+server 2.fr.pool.ntp.org iburst
+server 3.fr.pool.ntp.org iburst
+driftfile /var/lib/chrony/drift
+makestep 1.0 3
+rtcsync
+logdir /var/log/chrony
 ```
 
 <br><br>
