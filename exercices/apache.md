@@ -170,3 +170,9 @@ On vérifie avec  ```curl suse``` et on constate que le serveur apache fonctionn
 </body>
 </html>
 ```
+<br>
+<br>
+
+*Cette marmotte vous fixe intensément*
+
+<img src="https://github.com/user-attachments/assets/442e192e-a1a0-479b-993c-8249636a8a5c" alt="bowober-removebg-preview" width="40%" height="auto">
