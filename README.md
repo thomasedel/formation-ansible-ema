@@ -1,11 +1,11 @@
 # Liste des pages d'exercices
 
-## [Installation](https://github.com/thomasedel/formation-ansible-ema/blob/main/installation.md)
-## [Authentification](https://github.com/thomasedel/formation-ansible-ema/blob/main/authentification.md)
-## [Configuration](https://github.com/thomasedel/formation-ansible-ema/blob/main/configuration.md)
-## [Idempotence](https://github.com/thomasedel/formation-ansible-ema/blob/main/Idempotence.md)
-## [Apache](https://github.com/thomasedel/formation-ansible-ema/blob/main/apache.md)
-## [Handler](https://github.com/thomasedel/formation-ansible-ema/blob/main/handler.md)
-## [Variables](https://github.com/thomasedel/formation-ansible-ema/blob/main/variables.md)
-## [Facts](https://github.com/thomasedel/formation-ansible-ema/blob/main/facts.md)
-
+## [Installation](exercices/installation.md)
+## [Authentification](exercices/authentification.md)
+## [Configuration](exercices/configuration.md)
+## [Idempotence](exercices/Idempotence.md)
+## [Apache](exercices/apache.md)
+## [Handler](exercices/handler.md)
+## [Variables](exercices/variables.md)
+## [Cibles hétérogènes](exercices/cible-heterogenes.md.md)
+## [Jinja](exercices/jinja.md)
