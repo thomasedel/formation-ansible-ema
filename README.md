@@ -8,6 +8,7 @@
 ## [Handler](exercices/handler.md)
 ## [Variables](exercices/variables.md)
 ## [Variables enregistrées](exercices/variables_enregistrees.md)
+## [Facts](exercices/facts.md)
 ## [Cibles hétérogènes](exercices/cible-heterogenes.md)
 ## [Jinja](exercices/jinja.md)
 
