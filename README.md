@@ -6,4 +6,4 @@
 ## [Idempotence](https://github.com/thomasedel/formation-ansible-ema/blob/main/Idempotence.md)
 ## [Apache](https://github.com/thomasedel/formation-ansible-ema/blob/main/apache.md)
 ## [Handler](https://github.com/thomasedel/formation-ansible-ema/blob/main/handler.md)
-
+## [Variables](https://github.com/thomasedel/formation-ansible-ema/blob/main/variables.md)
