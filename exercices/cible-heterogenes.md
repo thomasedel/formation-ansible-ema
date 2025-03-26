@@ -87,6 +87,8 @@ Playbook ```chrony-01.yml``` aka la méthode gros sabots :
     when: ansible_distribution in ["Rocky", "openSUSE Leap"]
 ```
 
+On lance le playbook avec la commande ```ansible-playbook chrony-01.yml```
+
 On constate la bonne detection des os avec :
 
 ```shell
@@ -110,6 +112,8 @@ skipping: [ubuntu]
 ```
 
 Voici le playbook ```chrony-02.yml``` :
+
+On lance le playbook avec la commande ```ansible-playbook chrony-02.yml```
 
 ```yaml
 ---
