@@ -7,3 +7,5 @@
 ## [Apache](https://github.com/thomasedel/formation-ansible-ema/blob/main/apache.md)
 ## [Handler](https://github.com/thomasedel/formation-ansible-ema/blob/main/handler.md)
 ## [Variables](https://github.com/thomasedel/formation-ansible-ema/blob/main/variables.md)
+## [Facts](https://github.com/thomasedel/formation-ansible-ema/blob/main/facts.md)
+
