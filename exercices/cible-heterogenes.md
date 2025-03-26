@@ -185,3 +185,11 @@ On lance le playbook avec la commande ```ansible-playbook chrony-02.yml```
       state: restarted
 ```
 
+<br>
+<br>
+
+*Cette marmotte dodu se demande ce qu'est ansible*
+
+*Elle retourne dans son terrier*
+
+<img src="https://github.com/user-attachments/assets/c3f92569-1c16-4b34-bec5-758b8eadfe72" alt="bowober-removebg-preview" width="25%" height="auto">
