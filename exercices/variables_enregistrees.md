@@ -55,3 +55,11 @@ Voici le playbook ```packages.yml``` :
       debug:
         msg: "Hôte {{ inventory_hostname }} : {{ rpm_count.stdout }} paquets RPM"
 ```
+
+<br><br>
+
+*Après avoir atteint une maitrise avancée d'ansible*
+
+*La marmotte a transcandé l'univers*
+
+<img src="https://github.com/user-attachments/assets/742f21ee-165b-4d6e-8e74-31a1adb13e04" alt="bowober-removebg-preview" width="25%" height="auto">
