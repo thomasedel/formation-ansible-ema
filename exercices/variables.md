@@ -132,4 +132,11 @@ On peut les remplacer en spécifiant un utilisateurr et un mot de passe.
 
 Lors de la saisie du mot de passe, la saisie est cachée.
 
+<br>
+<br>
 
+*Les marmottes n'ont rien compris au playbook*
+
+*Pendant que vous attendez la fin du ```vagrant up``` elles ont volé votre moto et votre voiture*
+
+<img src="https://github.com/user-attachments/assets/0143c638-c299-458c-a004-75ed3600071d" alt="bowober-removebg-preview" width="300" height="auto">
