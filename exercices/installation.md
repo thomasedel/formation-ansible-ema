@@ -46,9 +46,9 @@ On constate avec ``ansible --version``` que la version est 2.17.9 :
 
 ## Exercice 3
 
-Lancer une VM Rocky : ``` vagrant up rocky```
+Lancer une VM Rocky : ```vagrant up rocky```
 
-Se connecter à la VM Rocky en SSH: ```vagrant ssh rocky```
+Se connecter à la VM Rocky en SSH : ```vagrant ssh rocky```
 
 Installer pip : ```sudo dnf install python3-pip```
 
