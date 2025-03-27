@@ -62,3 +62,11 @@ target03                   : ok=4    changed=0    unreachable=0    failed=0    s
 ```
 
 On constate qu'il n'y a aucun "changed" donc le script est idempotent car il n'a rien modifié la 2nd fois.
+
+<br><br>
+
+*Après avoir appris a utiliser chrony, Docteur Marmotte contrôle maintenant l'espace et le temps*
+
+<img src="https://github.com/user-attachments/assets/7eaa3ef1-df25-44ba-8582-e7d6faba65bc" alt="bowober-removebg-preview" width="25%" height="auto">
+
+
