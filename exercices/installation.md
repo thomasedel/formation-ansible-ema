@@ -12,13 +12,21 @@ Rafraîchir les paquets : ```sudo apt update```
 
 Recherche du paquet ansible : ```apt-cache search --names-only ansible```
 
-Installer le paquet ansible : ```apt install ansible```
+Installer le paquet ansible : ```sudo apt install ansible```
 
-Vérifier si l'installation s'est bien déroulé : ```ansible --version```
+Vérifier si l'installation s'est bien déroulé :
 
-On constate avec ``ansible --version``` que la version est 2.10.8 :
+On constate avec ```ansible --version``` que la version est 2.10.8 :
 
-![image](https://github.com/user-attachments/assets/0277d7ec-b0f7-4083-bc20-7ffd0ad1542f)
+```console
+vagrant@ubuntu:~$ ansible --version
+ansible 2.10.8
+  config file = None
+  configured module search path = ['/home/vagrant/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.10.12 (main, Jan 17 2025, 14:35:34) [GCC 11.4.0]
+```
 
 Sur la machine hôte executer la commande suivante : ```vagrant destroy ubuntu```
 
@@ -38,11 +46,22 @@ Recherche du paquet ansible : ```apt-cache search --names-only ansible```
 
 Installer le paquet ansible : ```apt install ansible```
 
-Vérifier si l'installation s'est bien déroulé : ```ansible --version```
+Vérifier si l'installation s'est bien déroulée :
 
-On constate avec ``ansible --version``` que la version est 2.17.9 :
+On constate avec ```ansible --version``` que la version d'ansible est 2.17.10:
 
-![image](https://github.com/user-attachments/assets/96ab50ab-f16f-402d-9fdb-ba8bc73f0c2c)
+```console
+vagrant@ubuntu:~$ ansible --version
+ansible [core 2.17.10]
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/vagrant/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/vagrant/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible
+  python version = 3.10.12 (main, Jan 17 2025, 14:35:34) [GCC 11.4.0] (/usr/bin/python3)
+  jinja version = 3.0.3
+  libyaml = True
+```
 
 ## Exercice 3
 
@@ -60,8 +79,21 @@ Mettre à jour pip : ```pip install --upgrade pip```
 
 Installer ansible via pip : ```pip install ansible```
 
+Vérifier si l'installation s'est bien déroulée :
+
 On constate avec ```ansible --version``` que la version d'ansible est 2.15.13 :
 
-![image](https://github.com/user-attachments/assets/f52771b8-d291-4aa5-9cb7-6f612f992f9c)
+```console
+(ansible) [vagrant@rocky ~]$ ansible --version
+ansible [core 2.15.13]
+  config file = None
+  configured module search path = ['/home/vagrant/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/vagrant/.venv/ansible/lib64/python3.9/site-packages/ansible
+  ansible collection location = /home/vagrant/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/vagrant/.venv/ansible/bin/ansible
+  python version = 3.9.18 (main, Sep  7 2023, 00:00:00) [GCC 11.4.1 20230605 (Red Hat 11.4.1-2)] (/home/vagrant/.venv/ansible/bin/python3)
+  jinja version = 3.1.6
+  libyaml = True
+```
 
 
