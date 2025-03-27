@@ -96,4 +96,11 @@ ansible [core 2.15.13]
   libyaml = True
 ```
 
+<br>
+<br>
 
+*La marmotte n'a pas créé de venv mais a utilisé ```--break-system-packages```*
+
+*Ne faites pas comme la marmotte*
+
+<img src="https://github.com/user-attachments/assets/e6966f30-440c-4ac0-9376-0bbe3e4554de" alt="bowober-removebg-preview" width="300" height="auto">
