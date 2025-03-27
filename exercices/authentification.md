@@ -12,7 +12,7 @@ On vérifie que ansible est installé avec : ```type ansible```
 
 Modifier le ```/etc/hosts``` pour ajouter les hosts :
 
-```console
+```bash
 192.168.56.10 control
 192.168.56.20 target01
 192.168.56.30 target02
@@ -26,4 +26,27 @@ On test un ping ansible sur les 3 machines avec la commande : ```ansible all -i 
 
 On constate que les pings fonctionnent :
 
-![image](https://github.com/user-attachments/assets/b4ed961c-d678-4e08-befb-e76da8a00a19)
+```bash
+vagrant@control:~$ ansible all -i target01,target02,target03 -m ping
+target01 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+target02 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+target03 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+```
