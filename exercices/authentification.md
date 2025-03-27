@@ -50,3 +50,10 @@ target03 | SUCCESS => {
     "ping": "pong"
 }
 ```
+<br>
+
+*La marmotte à volé votre clé privé*
+
+*Elle peut maitenant se connecter à vos machines pour miner du bitcoin*
+
+<img src="https://github.com/user-attachments/assets/1917d0c1-46c7-43f7-89fd-a827cfcd2cc0" alt="bowober-removebg-preview" width="25%" height="auto">
