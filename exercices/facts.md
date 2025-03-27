@@ -108,3 +108,10 @@ ok: [suse] => {
     "msg": "Host suse uses DNS servers: nameserver 10.0.2.3"
 }
 ```
+
+<br>
+
+*La marmotte est fan de python*
+
+<img src="https://github.com/user-attachments/assets/3c010c3a-5f8d-4ad3-900b-5cab02098cd8" alt="bowober-removebg-preview" width="25%" height="auto">
+
