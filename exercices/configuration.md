@@ -24,7 +24,30 @@ Pour vérifier l'installation d'ansible on fait ```ansible --version``` et on co
 
 On test un premier ping ansible sur les 3 machines avec la commande : ```ansible all -i target01,target02,target03 -m ping```
 
-![image](https://github.com/user-attachments/assets/48ff780a-0c79-4709-8732-5f8e917c76da)
+```shell
+vagrant@control:~$ ansible all -i target01,target02,target03 -m ping
+target02 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+target03 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+target01 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+```
 
 On constate que les 3 pings fonctionnent.
 
@@ -34,7 +57,15 @@ Ensuite on utilise la commande ```touch ansible.cfg``` pour créer le fichier vi
 
 Pour vérifier si le fichier de config est pris en compte on fait ```ansible --version```
 
-![image](https://github.com/user-attachments/assets/f62ba687-1b7d-4d04-87bf-b0730e796be3)
+```shell
+vagrant@control:~/monprojet$ ansible --version
+ansible 2.10.8
+  config file = /home/vagrant/monprojet/ansible.cfg
+  configured module search path = ['/home/vagrant/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.10.12 (main, Jan 17 2025, 14:35:34) [GCC 11.4.0]
+```
 
 
 On créer un inventaire et on active les logs en ajoutant les lignes suivantes dans le fichier ```ansible.cfg``` :
@@ -59,13 +90,53 @@ ansible_user=vagrant
 
 On fait ```ansible all -m ping``` :
 
-![image](https://github.com/user-attachments/assets/a54ea5b1-cd70-4ea2-86f3-2484d04d1687)
+```shell
+vagrant@control:~/monprojet$ ansible all -m ping
+[WARNING]: log file at /home/vagrant/logs/ansible.log is not writeable and we cannot create it, aborting
+
+target03 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+target02 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+target01 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+```
 
 Pour définir l'élévation on ajoute à la fin du fichier ```hosts``` la ligne ```ansible_become=yes```
 
 On affiche la première ligne du fichier ```/etc/shadow``` des hosts avec la commande : ```ansible all -a "head -n 1 /etc/shadow"```
 
-![image](https://github.com/user-attachments/assets/603a47e6-b5e5-472e-980c-0f5e0c79d8eb)
+```shell
+vagrant@control:~/monprojet$ ansible all -a "head -n 1 /etc/shadow"
+[WARNING]: log file at /home/vagrant/logs/ansible.log is not writeable and we cannot create it, aborting
 
+target01 | CHANGED | rc=0 >>
+root:*:19977:0:99999:7:::
+target03 | CHANGED | rc=0 >>
+root:*:19977:0:99999:7:::
+target02 | CHANGED | rc=0 >>
+root:*:19977:0:99999:7:::
+```
 
 On quitte le ssh avec ```exit``` et on détruit les VMs avec ```vagrant destroy -f```
+
+<br>
+
+*La marmotte ne s'est pas reveillé pour le cours ...*
+
+*Elle n'a pas signalé sont retard à l'administration*
